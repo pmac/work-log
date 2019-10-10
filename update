@@ -1,0 +1,13 @@
+#!/bin/bash
+
+main() {
+  local folder=$(date "+%Y/%m")
+  local filename=$(date "+%Y/%m/%d.md")
+  if [[ ! -f "$filename" ]]; then
+    mkdir -p "$folder"
+    date "+# %Y-%m-%d%n%n" > "$filename"
+  fi
+  "$EDITOR" "$filename"
+}
+
+main
